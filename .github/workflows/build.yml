@@ -34,3 +34,4 @@ jobs:
         with:
           name: archives.zip
           path: archives.zip
+          content_type: application/zip
