@@ -1,3 +1,4 @@
 #!/bin/bash
-touch test
-echo "This is some content" >> test
+mkdir archives
+touch archives/test
+echo "This is some content" >> archives/test
