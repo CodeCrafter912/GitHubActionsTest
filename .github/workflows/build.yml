@@ -28,3 +28,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: build
         run: ./build.sh
+    
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test
+          path: ./
