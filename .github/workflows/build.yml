@@ -27,8 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: testscript
-      run: TRANSLATIONS=$(ls ./test/test*) \
-while read lang; do \
-echo "Releasing $lang" \
-cat $lang \
-done <<< "$TRANSLATIONS" \
+        run: |
+          TRANSLATIONS=$(ls ./test/test*)
+          while read lang; do
+            echo "Releasing $lang"
+            cat $lang
+          done <<< "$TRANSLATIONS"
