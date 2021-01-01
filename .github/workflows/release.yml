@@ -23,23 +23,11 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-      - name: Upload Release Asset 1
-        id: upload-release-asset1
-        uses: actions/upload-release-asset@v1
+      - name: Upload Release Assets
+        id: upload-release-assets
+        uses: dwenegar/upload-release-assets@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./archives/*.deb
-          asset_name: linuxmuster-linbo-gui.deb
-          asset_content_type: application/vnd.debian.binary-package
-      - name: Upload Release Asset 2
-        id: upload-release-asset2
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./archives/*.changes
-          asset_name: linuxmuster-linbo-gui.changes
-          asset_content_type: text/plain
+          release_id: ${{ steps.create_release.outputs.id }}
+          assets_path: ./archives/
