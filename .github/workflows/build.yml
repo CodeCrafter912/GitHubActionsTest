@@ -4,12 +4,6 @@ name: CI
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -22,14 +16,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: donwload_assets
-      	uses: dsaltares/fetch-gh-release-asset@master
-        with:
-	  repo: "CodeCrafter912/GitHubActionsTest"
-	  version: "latest"
-	  file: "linuxmuster-linbo-gui7_0.3-0_all.deb"
-	  token: ${{ secrets.GITHUB_TOKEN }}
+			- name: Fetch Github Release Asset
+				# You may pin to the exact commit or the version.
+				# uses: dsaltares/fetch-gh-release-asset@aa37ae5c44d3c9820bc12fe675e8670ecd93bd1c
+				uses: dsaltares/fetch-gh-release-asset@0.0.5
+				with:
+					# org/repo to download from
+					repo: # optional, default is 
+					# version of the release to download from
+					version: # optional, default is latest
+					# name of the file in the release to download
+					file: 
+					# optional Personal Access Token to access external repository
+					token: # optional, default is 
