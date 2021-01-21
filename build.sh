@@ -1,8 +1,6 @@
 #!/bin/bash
 mkdir archives
-touch archives/test
-echo "This is some content" >> archives/test
-touch archives/test1
-echo "This is some content1" >> archives/test1
-cd archives
-zip -r ./archives.zip *
+touch test/test
+echo "This is some content" >> test/test
+touch test/test1
+echo "This is some content1" >> test/test1
