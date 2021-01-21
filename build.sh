@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir archives
+mkdir test
 touch test/test
 echo "This is some content" >> test/test
 touch test/test1
