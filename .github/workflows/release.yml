@@ -39,7 +39,3 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-  publish-release:
-    needs: process
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-    name: GitHub Release
