@@ -27,7 +27,7 @@ jobs:
         uses:  Itsblue/download-release-assets-action@v1
         with:
           file: .*
-          path: .
+          path: ./assets
           
       - name: Test
         run: ls
