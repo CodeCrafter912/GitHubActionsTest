@@ -24,9 +24,11 @@ jobs:
       - name: Fetch Github Release Asset
       # You may pin to the exact commit or the version.
       # uses: dsaltares/fetch-gh-release-asset@aa37ae5c44d3c9820bc12fe675e8670ecd93bd1c
-        uses: dsaltares/fetch-gh-release-asset@0.0.5
+        uses:  RadiusNetworks/fetch-release-asset-action@v1
         with:
-          file: linuxmuster-linbo-gui7*
+          regex: linuxmuster-linbo-gui7*
+          dir: .
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Test
         run: ls
