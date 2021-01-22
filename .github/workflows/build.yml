@@ -24,7 +24,7 @@ jobs:
       - name: Fetch Github Release Asset
       # You may pin to the exact commit or the version.
       # uses: dsaltares/fetch-gh-release-asset@aa37ae5c44d3c9820bc12fe675e8670ecd93bd1c
-        uses:  Itsblue/download-release-assets-action@master
+        uses:  Itsblue/download-release-assets-action@v1
         with:
           file: .*
           path: .
