@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Download release asset
 
 # Controls when the action will run. 
 on:
@@ -24,11 +24,10 @@ jobs:
       - name: Fetch Github Release Asset
       # You may pin to the exact commit or the version.
       # uses: dsaltares/fetch-gh-release-asset@aa37ae5c44d3c9820bc12fe675e8670ecd93bd1c
-        uses:  RadiusNetworks/fetch-release-asset-action@v1
+        uses:  Itsblue/download-release-assets-action@master
         with:
-          regex: linuxmuster-linbo-gui7*
-          dir: .
-          token: ${{ secrets.GITHUB_TOKEN }}
+          file: .*
+          path: .
           
       - name: Test
         run: ls
