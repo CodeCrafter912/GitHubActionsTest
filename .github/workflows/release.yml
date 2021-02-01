@@ -1,3 +1,5 @@
+
+
 on:
   push:
     # Sequence of patterns matched against refs/tags
@@ -8,34 +10,23 @@ name: Build and Upload Release Asset
 
 jobs:
   build:
-    name: Build
+    name: Build and Upload Release Asset
     runs-on: ubuntu-18.04
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Build stuff lol
-        run: ./build.sh
-
-      - name: upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: test
-          path: test
-  
-  process:
-    name: Process
-    runs-on: ubuntu-18.04
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
         
-      - uses: actions/download-artifact@v2
-        with:
-          name: test
-          path: test
-    
-      - name: Display structure of downloaded files
-        run: ls -R
+      - name: Extract current changes
+        run: cat debian/changelog | sed 1d | sed '/ -- .*/Q' | sed '/^$/d' | tail >> ./current-changes
 
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          body_path: ./current-changes.txt

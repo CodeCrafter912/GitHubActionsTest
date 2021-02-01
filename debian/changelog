@@ -1,0 +1,68 @@
+linuxmuster-linbo-gui7 (7.0.0-rc01) lmn7-testing; urgency=low
+
+  * Improvements to terminal
+  * Implement root-timeout
+  * Minor fixes
+
+ -- Dorian Zedler <dorian@itsblue.de>  Tue, 23 Jan 2021 22:55:00 +0100
+
+linuxmuster-linbo-gui7 (7.0.0-Beta02) lmn7-testing; urgency=low
+
+  * CodeCrafter912:
+    - Fixed isse that wont let the GUI start
+    - Fixed issues that made the Terminal dialog crash sometimes
+
+ -- Dorian Zedler <dorian@itsblue.de>  Sat, 23 Jan 2021 11:01:44 +0100
+
+linuxmuster-linbo-gui7 (7.0.0-Beta01) lmn7-testing; urgency=low
+
+  * CodeCrafter912:
+    - Added variable background color
+    - Implemented image upload
+    - some more minor fixes
+
+ -- Dorian Zedler <dorian@itsblue.de>  Thu, 21 Jan 2021 11:01:44 +0100
+
+linuxmuster-linbo-gui7 (0.6-0) lmn7-testing; urgency=low
+
+  * CodeCrafter912:
+    - Fix #16: Add timer to long operations.
+    - Fix #4: Multi language Support 
+    - New Design in backend
+
+ -- Dorian Zedler <dorian@itsblue.de>  Sat, 2 Jan 2021 11:01:44 +0100
+
+linuxmuster-linbo-gui7 (0.5-0) lmn7-testing; urgency=low
+
+  * CodeCrafter912:
+    - Fix #13: Problems with HTML parsing.
+    - Fix #11: When using minimal Layout, an OS can now be selected with hover and the default action can be executed with a double-click.
+
+ -- Thomas Schmitt <thomas@linuxmuster.net>  Sat, 26 Dec 2020 15:58:34 +0100
+
+linuxmuster-linbo-gui7 (0.4-0) lmn7; urgency=low
+
+  * release 7.0.1-Alpha03-01
+    (https://github.com/linuxmuster/linuxmuster-linbo-gui/releases/tag/7.0.1-Alpha03-01).
+
+ -- Thomas Schmitt <thomas@linuxmuster.net>  Fri, 25 Dec 2020 15:25:47 +0100
+
+linuxmuster-linbo-gui7 (0.3-0) lmn7; urgency=low
+
+  * release 7.0.1-Alpha02 (https://github.com/linuxmuster/linuxmuster-linbo-gui/releases/tag/7.0.1-Alpha02).
+  * removed build.sh from rules file.
+  * exclude libs from gui archives which exist already in linbofs by
+
+ -- Thomas Schmitt <thomas@linuxmuster.net>  Sat, 19 Dec 2020 20:42:52 +0100
+
+linuxmuster-linbo-gui7 (0.2-0) lmn7; urgency=low
+
+  * first testing release based on tag 7.0.1-Alpha01-1.
+
+ -- Thomas Schmitt <thomas@linuxmuster.net>  Mon, 14 Dec 2020 18:56:25 +0100
+
+linuxmuster-linbo-gui7 (0.1-0) lmn7; urgency=low
+
+  * initial release.
+
+ -- Thomas Schmitt <thomas@linuxmuster.net>  Tue, 08 Dec 2020 15:32:22 +0100
