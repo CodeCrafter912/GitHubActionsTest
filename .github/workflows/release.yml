@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Extract current changes
         run: cat debian/changelog | sed 1d | sed '/ -- .*/Q' | sed '/^$/d' | tail >> ./current-changes
 
@@ -29,4 +29,4 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
-          body_path: ./current-changes.txt
+          body_path: ./current-changes
