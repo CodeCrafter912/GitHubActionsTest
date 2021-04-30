@@ -7,45 +7,47 @@ jobs:
     name: Add 3 and 7
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        run: |
-          expr 3 + 7 > math-homework.txt
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v2
         with:
-          name: homework
-          path: math-homework.txt
+          name: images
+          path: outputs/*/images/*.zip
 
-  job_2:
-    name: Multiply by 9
-    needs: job_1
-    runs-on: windows-latest
+  github-release:
+    needs: build
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    name: GitHub Release
+    runs-on: ubuntu-latest
     steps:
-      - name: Download math result for job 1
+      - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: homework
-      - shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          expr $value \* 9 > math-homework.txt
-      - name: Upload math result for job 2
-        uses: actions/upload-artifact@v2
-        with:
-          name: homework
-          path: math-homework.txt
+          name: images
 
-  job_3:
-    name: Display results
-    needs: job_2
-    runs-on: macOS-latest
-    steps:
-      - name: Download math result for job 2
-        uses: actions/download-artifact@v2
-        with:
-          name: homework
-      - name: Print the final result
-        shell: bash
+      - name: Copy to common dir
         run: |
-          value=`cat math-homework.txt`
-          echo The result is $value
+          mkdir -p release-uploads
+          cp outputs/*/images/*.zip release-uploads
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Assets
+        id: upload-release-assets
+        uses: dwenegar/upload-release-assets@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ steps.create_release.outputs.id }}
+          assets_path: release-uploads
