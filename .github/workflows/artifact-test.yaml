@@ -23,7 +23,7 @@ jobs:
           path: outputs/*/images/*.zip
 
   github-release:
-    needs: build
+    needs: job_1
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     name: GitHub Release
     runs-on: ubuntu-latest
