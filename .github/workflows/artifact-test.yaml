@@ -35,6 +35,7 @@ jobs:
 
       - name: Copy to common dir
         run: |
+          find .
           mkdir -p release-uploads
           cp outputs/*/images/*.zip release-uploads
 
