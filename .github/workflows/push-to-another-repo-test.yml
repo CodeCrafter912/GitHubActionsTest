@@ -39,8 +39,8 @@ jobs:
           #git remote add "git@github.com:CodeCrafter912/AnotherTest.git" 
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git checkout -b test-branch
+          git checkout -b test-branch2
           git add *
           git commit -a -m "test (By GitHub actions)"
-          git push --set-upstream origin test-branch
+          git push --set-upstream origin test-branch2
         
