@@ -42,5 +42,5 @@ jobs:
           git checkout -b test-branch
           git add *
           git commit -a -m "test (By GitHub actions)"
-          git push
+          git push --set-upstream origin test-branch
         
